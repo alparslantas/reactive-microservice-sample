@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "52573a5d-c349-4d0e-b86a-835b338ca4fd",
+		"name": "reactive-spring",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "saveUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n\n        \"userId\": \"alparslantas\",\n        \"name\": \"alparslan\",\n        \"surname\": \"tas\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:9999/user-service/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"user-service",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9999/user-service/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"user-service",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9999/order-service/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"order-service",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saveOrder",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": \"alparslan\",\n    \"amount\": 2,\n    \"orderStatus\": \"onway\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9999/order-service/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"order-service",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateOrderByuser",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": \"5c4c79d073e1d0536618725d\",\n        \"userId\": \"alparslantas\",\n        \"amount\": 12,\n        \"orderStatus\": \"onway\"\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:9999/user-service/alparslantas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9999",
+					"path": [
+						"user-service",
+						"alparslantas"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

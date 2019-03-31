@@ -1,0 +1,28 @@
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+  healthcheck:
+      enabled: true
+  lease:
+      duration: 5
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      web:
+        base-path: /actuator
+    jmx:
+      exposure:
+        include: '*'
+        
+  

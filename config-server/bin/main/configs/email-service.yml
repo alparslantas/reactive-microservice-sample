@@ -1,0 +1,54 @@
+server:
+  port: 8082
+  profiles:
+    active: native
+#  data:
+#    mongodb:
+#      uri: mongodb://192.168.99.100/test
+
+spring:
+  management:
+    health:
+      binders:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+  cloud:  
+    stream:
+      bindings:
+        output:
+          destination: orders-in
+        input:
+          destination: orders-out
+      rabbit:
+        bindings:
+          output:
+            producer:
+              exchangeType: direct
+              routingKeyExpression: '"#"'
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 3434testmail3434
+    password: 3434testmail3434+-
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          enable: true
+          required: true
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false
+alp:
+  mail:
+    to: alparslantas@gmail.com
+      
+              

@@ -1,0 +1,35 @@
+server:
+  port: 9999
+  profiles:
+    active: native
+  
+logging:
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+              
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+        - Path=/user-service/**
+        filters:
+        - RewritePath=/user-service/(?<path>.*), /$\{path}
+      - id: order-service
+        uri: lb://order-service
+        predicates:
+        - Path=/order-service/**
+        filters:
+        - RewritePath=/order-service/(?<path>.*), /$\{path}
+      - id: email-service
+        uri: lb://email-service
+        predicates:
+        - Path=/email-service/**
+        filters:
+        - RewritePath=/email-service/(?<path>.*), /$\{path}
+        

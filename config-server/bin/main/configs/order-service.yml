@@ -1,0 +1,54 @@
+server:
+  port: 8081
+  profiles:
+    active: native
+
+spring:
+  management:
+    health:
+      binders:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+  cloud:  
+    stream:
+      bindings:
+        output:
+          destination: orders-out
+        input:
+          destination: orders-in
+      rabbit:
+        bindings:
+          input:
+            consumer:
+              exchangeType: direct
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false
+              
+    
+---
+
+spring:
+  profiles: native1
+  cloud:
+    stream:
+      instanceCount: 2
+      instanceIndex: 0
+server:  
+  port: ${PORT:8090} 
+  
+---
+
+spring:
+  profiles: native2
+  cloud:
+    stream:
+      instanceCount: 2
+      instanceIndex: 1
+server:  
+  port: ${PORT:8091}                     
+              
+              
+              

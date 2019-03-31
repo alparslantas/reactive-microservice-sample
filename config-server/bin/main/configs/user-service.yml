@@ -1,0 +1,13 @@
+server:
+  port: 8083
+  profiles:
+    active: native
+
+spring:
+  management:
+    health:
+      binders:
+        enabled: true
+  devtools:
+    restart:
+      log-condition-evaluation-delta: false

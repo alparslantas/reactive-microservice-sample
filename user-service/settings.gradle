@@ -1,0 +1,4 @@
+rootProject.name = 'user-service'
+
+include ':common-service'
+project(':common-service').projectDir = new File('../common-service')
